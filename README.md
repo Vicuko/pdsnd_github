@@ -1,5 +1,24 @@
 >**Note**: Please **fork** the current Udacity repository so that you will have a **remote** repository in **your** Github account. Clone the remote repository to your local machine. Later, as a part of the project "Post your Work on Github", you will push your proposed changes to the remote repository in your Github account.
 
+### Requirements/Installation
+
+This project requires Python 3.x and the following Python libraries installed:
+
+- [NumPy](http://www.numpy.org/)
+- [Pandas](http://pandas.pydata.org/)
+
+To run this project, you will need to have software installed to run and execute a [Jupyter Notebook](http://ipython.org/notebook.html). If you do not have Python installed yet, it is highly recommended that you install the [Anaconda](http://continuum.io/downloads) distribution of Python, which already has the above packages and more included.
+
+#### Steps:
+1. Clone the repository to your local machine:
+    ```
+    git clone https://github.com/yourusername/your-repo-name.git
+    ```
+2. Navigate to the cloned directory.
+3. Run `bikeshare.py` in a terminal or command window.
+
+Please ensure that you have the necessary data files in the same directory as the script. The data files are: 'chicago.csv', 'new_york_city.csv', 'washington.csv'
+
 ### Date created
 Project was created on June 25, 2023.
 
