@@ -11,7 +11,26 @@ DAYS = ['monday', 'tuesday', 'wednesday', 'thursday',
         'friday', 'saturday', 'sunday', 'all']
 
 
-def get_filters():
+def get_input(prompt, valid_values):
+    """
+    Asks user to specify a value and checks if it's valid.
+
+    Args:
+        (str) prompt - user prompt message
+        (list) valid_values - list of valid values
+    Returns:
+        (str) value - user input value
+    """
+    while True:
+        value = input(prompt).lower()
+        if value not in valid_values:
+            print("Invalid input. Please try again.")
+        else:
+            break
+    return value
+
+
+def get_user_input():
     """
     Asks user to specify a city, month, and day to analyze.
 
@@ -21,36 +40,12 @@ def get_filters():
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
     print('Hello! Let\'s explore some US bikeshare data!')
-    # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
-    while True:
-        city = input(
-            "Enter the city name (chicago, new york city, washington): ").lower()
-        if city not in CITY_DATA:
-            print("Invalid city name. Please try again.")
-            continue
-        else:
-            break
-
-    # TO DO: get user input for month (all, january, february, ... , june)
-    while True:
-        month = input(
-            "Enter month name to filter by (january, ..., june, or all): ").lower()
-        if month not in MONTHS:
-            print("Invalid month. Please try again.")
-            continue
-        else:
-            break
-
-    # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
-    while True:
-        day = input(
-            "Enter the day of week to filter by (monday, ..., sunday, or all): ").lower()
-        if day not in DAYS:
-            print("Invalid day. Please try again.")
-            continue
-        else:
-            break
-
+    city = get_input(
+        "Enter the city name (chicago, new york city, washington): ", CITY_DATA.keys())
+    month = get_input(
+        "Enter month name to filter by (january, ..., june, or all): ", MONTHS)
+    day = get_input(
+        "Enter the day of week to filter by (monday, ..., sunday, or all): ", DAYS)
     print('-'*40)
     return city, month, day
 
@@ -188,7 +183,7 @@ def user_stats(df):
 
 def main():
     while True:
-        city, month, day = get_filters()
+        city, month, day = get_user_input()
         df = load_data(city, month, day)
 
         time_stats(df)
