@@ -30,7 +30,7 @@ def get_input(prompt, valid_values):
     return value
 
 
-def get_filters():
+def get_user_input():
     """
     Asks user to specify a city, month, and day to analyze.
 
@@ -183,7 +183,7 @@ def user_stats(df):
 
 def main():
     while True:
-        city, month, day = get_filters()
+        city, month, day = get_user_input()
         df = load_data(city, month, day)
 
         time_stats(df)
